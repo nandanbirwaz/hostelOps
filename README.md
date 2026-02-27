@@ -114,9 +114,7 @@ To use the provided CI/CD pipeline, configure the GitHub repo variables/secrets 
 
 _Image placeholder (screenshots of running app):_
 
-```md
 ![Running Application Screenshot](./docs/images/app-running.png)
-```
 
 ### 2. Architecture Diagram (Containers + Reverse Proxy + Ports)
 
@@ -130,9 +128,7 @@ Logical architecture:
 
 _Image placeholder (high-level container & port diagram):_
 
-```md
 ![Architecture Diagram](./docs/images/architecture-diagram.png)
-```
 
 ### 3. Nginx Configuration Explanation
 
@@ -151,9 +147,7 @@ _Image placeholder (high-level container & port diagram):_
 
 _Image placeholder (annotated Nginx flow):_
 
-```md
 ![Nginx Reverse Proxy Flow](./docs/images/nginx-flow.png)
-```
 
 ### 4. Dockerfiles and Containers Explanation
 
@@ -180,9 +174,7 @@ _Image placeholder (annotated Nginx flow):_
 
 _Image placeholder (Docker build pipeline / stages):_
 
-```md
 ![Docker Build & Images](./docs/images/docker-build.png)
-```
 
 ### 5. Networking & Firewall Strategy
 
@@ -198,9 +190,7 @@ _Image placeholder (Docker build pipeline / stages):_
 
 _Image placeholder (network & firewall view):_
 
-```md
 ![Networking & Firewall](./docs/images/network-firewall.png)
-```
 
 ### 6. Request Lifecycle Explanation
 
@@ -218,9 +208,7 @@ Example: student submits a complaint from the UI.
 
 _Image placeholder (sequence diagram):_
 
-```md
 ![Request Lifecycle](./docs/images/request-lifecycle.png)
-```
 
 ### 7. Serverful vs Serverless (Conceptual Comparison)
 
