@@ -1,30 +1,34 @@
-version: '3.8'
-
 services:
   mongodb:
-    image: mongo:8.0-noble
+    image: mongo:8.0.19-noble
     container_name: hostelops-mongodb
     volumes:
       - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
     restart: unless-stopped
     networks:
       - hostelops-network
 
   backend:
-    image: ${{ vars.DOCKERHUB_USERNAME }}/hostelops-backend:latest
+    image: ${DOCKERHUB_USERNAME}/hostelops-backend:latest
     container_name: hostelops-backend
     env_file:
       - ./backend/.env
     environment:
       - NODE_ENV=production
     depends_on:
-      - mongodb
+      mongodb:
+        condition: service_healthy
     restart: unless-stopped
     networks:
       - hostelops-network
 
   frontend:
-    image: ${{ vars.DOCKERHUB_USERNAME }}/hostelops-frontend:latest
+    image: ${DOCKERHUB_USERNAME}/hostelops-frontend:latest
     container_name: hostelops-frontend
     environment:
       # Relative API URL now handled heavily by nginx routing /api to backend
