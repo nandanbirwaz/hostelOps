@@ -98,8 +98,6 @@ To use the provided CI/CD pipeline, configure the GitHub repo variables/secrets 
 
 ## Submission Documentation
 
-> This section is structured to match the assignment rubric.  
-> You can insert your own figures where the image placeholders are.
 
 ### 1. Running Deployed Application (Docker-based)
 
@@ -112,7 +110,7 @@ To use the provided CI/CD pipeline, configure the GitHub repo variables/secrets 
     - `docker compose -f docker-compose.hub.yml up -d`
   - The app is then reachable at `http://<VM_PUBLIC_IP_OR_DOMAIN>`.
 
-_Image placeholder (screenshots of running app):_
+_screenshots of running app:_
 
 ![Running Application Screenshot](./docs/images/app-running.png)
 
@@ -126,7 +124,7 @@ Logical architecture:
 - **Backend** talks to **MongoDB container** on `27017` over the internal Docker bridge network (`hostelops-network`).
 - MongoDB is never exposed outside Docker; only Nginx is published.
 
-_Image placeholder (high-level container & port diagram):_
+_high-level container & port diagram:_
 
 ![Architecture Diagram](./docs/images/architecture-diagram.png)
 
@@ -145,7 +143,7 @@ _Image placeholder (high-level container & port diagram):_
 - **Security**:
   - Only Nginx listens on port `80`; other containers are not directly accessible from the internet.
 
-_Image placeholder (annotated Nginx flow):_
+_annotated Nginx flow:_
 
 ![Nginx Reverse Proxy Flow](./docs/images/nginx-flow.png)
 
@@ -188,7 +186,7 @@ _Image placeholder (Docker build pipeline / stages):_
   - Attack surface is minimized to a single entry point (Nginx).
   - MongoDB is fully shielded from external scanning and brute-force attacks.
 
-_Image placeholder (network & firewall view):_
+_network & firewall view:_
 
 ![Networking & Firewall](./docs/images/network-firewall.png)
 
@@ -206,7 +204,7 @@ Example: student submits a complaint from the UI.
 5. Backend sends a JSON response back to Nginx.
 6. Nginx proxies the response to the browser, which updates the UI (e.g., complaint list).
 
-_Image placeholder (sequence diagram):_
+_sequence diagram:_
 
 ![Request Lifecycle](./docs/images/request-lifecycle.png)
 
