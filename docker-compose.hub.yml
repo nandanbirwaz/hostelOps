@@ -16,10 +16,12 @@ services:
   backend:
     image: ${DOCKERHUB_USERNAME}/hostelops-backend:latest
     container_name: hostelops-backend
-    env_file:
-      - ./backend/.env
     environment:
       - NODE_ENV=production
+      - PORT=${PORT:-5000}
+      - MONGODB_URI=${MONGODB_URI:-mongodb://mongodb:27017/hostelops}
+      - JWT_SECRET=${JWT_SECRET:-super_secret_jwt_key_here}
+      - FRONTEND_URL=${FRONTEND_URL:-http://localhost}
     depends_on:
       mongodb:
         condition: service_healthy
