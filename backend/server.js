@@ -5,9 +5,6 @@ const connectDB = require('./config/db');
 const { errorHandler, notFound } = require('./middleware/error');
 const logger = require('./middleware/logger');
 
-// Connect Database
-connectDB();
-
 const app = express();
 
 // Middleware
@@ -31,7 +28,18 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
-// Listen on 0.0.0.0 for Docker containerization
-app.listen(PORT, '0.0.0.0', () => {
-    console.log(`Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+async function start() {
+    await connectDB();
+
+    // Listen on 0.0.0.0 for Docker containerization
+    app.listen(PORT, '0.0.0.0', () => {
+        console.log(
+            `Server running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`
+        );
+    });
+}
+
+start().catch((err) => {
+    console.error(err);
+    process.exit(1);
 });
