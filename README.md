@@ -48,8 +48,6 @@ This keeps the database unreachable from the public internet and centralizes tra
    docker compose down
    ```
 
-> MongoDB runs in a named volume (`skilllab_mongodb_data`), so data survives container restarts.  
-> If you change MongoDB major versions and hit startup issues, you can reset local data with `docker compose down -v`.
 
 ### Seeding an Admin User
 
@@ -239,13 +237,3 @@ This project uses a **serverful, container-based** model because it provides:
 
 - Full control over long-running connections, MongoDB, and Nginx behavior.
 - Easier Docker-based local development that matches production.
-
-### 8. Evaluation Mapping (Weightage)
-
-| Component                 | Where it is covered in this project                         | Weightage |
-|--------------------------|--------------------------------------------------------------|----------|
-| Application Functionality | Student/Admin features, auth, complaint flows               | 30%      |
-| Docker Implementation     | Backend & frontend Dockerfiles, `docker-compose.yml`        | 20%      |
-| Nginx Reverse Proxy       | `nginx/nginx.conf`, Nginx explanation section above         | 20%      |
-| Networking & Security     | Internal network, firewall strategy, hidden MongoDB         | 10%      |
-| Architecture Documentation | This README: architecture, lifecycle, diagrams placeholders | 20%      |

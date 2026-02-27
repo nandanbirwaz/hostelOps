@@ -174,3 +174,4 @@ jobs:
             docker image prune -af --filter "until=24h" || true
             # Safe restart of stack
             docker compose -f docker-compose.hub.yml up -d
+            
