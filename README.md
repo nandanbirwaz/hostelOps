@@ -170,7 +170,7 @@ _annotated Nginx flow:_
   - Uses `mongo:8.0.19-noble`.
   - Has a `healthcheck` using `mongosh` to ensure readiness before backend starts.
 
-_Image placeholder (Docker build pipeline / stages):_
+_Docker build pipeline / stages:_
 
 ![Docker Build & Images](./docs/images/docker-build.png)
 
